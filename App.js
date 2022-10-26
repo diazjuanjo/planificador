@@ -4,11 +4,21 @@ import Header from './src/components/Header';
 import NuevoPresupuesto from './src/components/NuevoPresupuesto';
 
 const App = () => {
+
+  const handleNuevoPresupuesto = (presupuesto) => {
+    if(Number(presupuesto) > 0) {
+      console.log('presupuesto valido')
+  }else{
+    console.log('presupuesto inválido')
+  }}
+
   return (
     <View style={styles.contenedor}>
       <View style={styles.header}>
         <Header />
-        <NuevoPresupuesto />
+        <NuevoPresupuesto 
+          handleNuevoPresupuesto={handleNuevoPresupuesto}
+        />
       </View>
     </View>
   );
