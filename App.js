@@ -28,6 +28,10 @@ const App = () => {
     }
   };
 
+  const handleGasto = gasto => {
+    console.log(gasto);
+  };
+
   return (
     <View style={styles.contenedor}>
       <View style={styles.header}>
@@ -43,8 +47,11 @@ const App = () => {
         )}
       </View>
       {modal && (
-        <Modal animationType="slide" visible={modal}>
-          <FormularioGasto />
+        <Modal
+          animationType="slide"
+          visible={modal}
+          onRequestClose={() => setModal(!modal)}>
+          <FormularioGasto setModal={setModal} handleGasto={handleGasto} />
         </Modal>
       )}
       {isValidPresupuesto && (
